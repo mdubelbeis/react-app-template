@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import { HomePage } from '../HomePage';
 
 describe('App', () => {
   it('should render homepage with h1', () => {
-    render(<App />);
+    render(<HomePage />);
 
     expect(
       screen.getByRole('heading', {
