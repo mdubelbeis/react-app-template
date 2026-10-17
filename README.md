@@ -1,73 +1,126 @@
-# React + TypeScript + Vite
+# React App Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A reusable React and TypeScript application template for building modern frontend applications with a consistent development environment, project structure, and architecture.
 
-Currently, two official plugins are available:
+The goal of this project is to provide a reliable starting point for new applications while reducing repetitive project setup and configuration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Current Stack
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- ESLint
+- Prettier
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Additional application tooling and architectural patterns will be added incrementally as the template evolves.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js
+- npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Install Dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Start the Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run dev
 ```
+
+## Available Scripts
+
+### Development
+
+```bash
+npm run dev
+```
+
+Starts the Vite development server.
+
+### Build
+
+```bash
+npm run build
+```
+
+Runs the TypeScript compiler and creates a production build.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+Runs ESLint against the project.
+
+### Format
+
+```bash
+npm run format
+```
+
+Formats the project using Prettier.
+
+### Check Formatting
+
+```bash
+npm run format:check
+```
+
+Checks whether files conform to the project's Prettier configuration without modifying them.
+
+### Preview
+
+```bash
+npm run preview
+```
+
+Locally previews the production build.
+
+## Development Environment
+
+The repository includes workspace-level VS Code configuration under `.vscode/`.
+
+### Recommended Extensions
+
+- ESLint
+- Prettier
+
+Project formatting rules are defined in `.prettierrc`, while linting rules are defined in `eslint.config.js`.
+
+## Using This Template
+
+This repository is intended to be used as a GitHub template repository.
+
+To create a new application:
+
+1. Select **Use this template** on GitHub.
+2. Create a new repository from the template.
+3. Clone the new repository.
+4. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+Each application created from this template has its own Git history and can evolve independently.
+
+## Status
+
+This template is under active development.
+
+Application architecture, testing, routing, state management, API integration, UI components, and other development patterns will be added incrementally.
+
+Contributions and feedback are welcome to help improve this template.
