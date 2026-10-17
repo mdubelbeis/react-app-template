@@ -1,9 +1,9 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, type RouteObject } from 'react-router';
+import { AppLayout } from '../layouts/AppLayout';
 import { HomePage } from '../pages/HomePage';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { AppLayout } from '../layouts/AppLayout';
 
-export const router = createBrowserRouter([
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: <AppLayout />,
@@ -12,11 +12,12 @@ export const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-
       {
         path: '*',
         element: <NotFoundPage />,
       },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);
