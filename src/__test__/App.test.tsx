@@ -9,7 +9,7 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: 'React App Template',
+        name: 'React Application Template',
       })
     ).toBeInTheDocument();
   });

@@ -1,10 +1,12 @@
-import './App.css';
+import { Container, Typography } from '@mui/material';
 
 function App() {
   return (
-    <main>
-      <h1>React App Template</h1>
-    </main>
+    <Container component='main'>
+      <Typography component='h1' variant='h3'>
+        React Application Template
+      </Typography>
+    </Container>
   );
 }
 
