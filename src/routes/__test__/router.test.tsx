@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 import { routes } from '../router';
 import { describe, expect, it } from 'vitest';
+import { createQueryWrapper } from '../../test/testUtils';
 
 describe('router', () => {
   it('renders the home page at the root route', () => {
@@ -9,7 +10,9 @@ describe('router', () => {
       initialEntries: ['/'],
     });
 
-    render(<RouterProvider router={router} />);
+    render(<RouterProvider router={router} />, {
+      wrapper: createQueryWrapper(),
+    });
 
     expect(
       screen.getByRole('heading', {
@@ -24,7 +27,9 @@ describe('router', () => {
       initialEntries: ['/unknown'],
     });
 
-    render(<RouterProvider router={router} />);
+    render(<RouterProvider router={router} />, {
+      wrapper: createQueryWrapper(),
+    });
 
     expect(
       screen.getByRole('heading', {

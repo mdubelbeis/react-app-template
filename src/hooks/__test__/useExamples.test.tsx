@@ -1,29 +1,14 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { renderHook, waitFor } from '@testing-library/react';
-import type { ReactNode } from 'react';
 import { useExamples } from '../useExamples';
 import { describe, expect, it } from 'vitest';
 import { http, HttpResponse } from 'msw/http';
 import { server } from '../../mocks/server';
-
-function createWrapper() {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: false,
-      },
-    },
-  });
-
-  return function Wrapper({ children }: { children: ReactNode }) {
-    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
-  };
-}
+import { createQueryWrapper } from '../../test/testUtils';
 
 describe('useExamples', () => {
   it('returns examples from the MSW API', async () => {
     const { result } = renderHook(() => useExamples(), {
-      wrapper: createWrapper(),
+      wrapper: createQueryWrapper(),
     });
 
     await waitFor(() => {
@@ -44,7 +29,7 @@ describe('useExamples', () => {
     );
 
     const { result } = renderHook(() => useExamples(), {
-      wrapper: createWrapper(),
+      wrapper: createQueryWrapper(),
     });
 
     await waitFor(() => {
